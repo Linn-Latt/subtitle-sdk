@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "tsx tests/srt-parser.test.ts"
+    "dev": "tsx src/core/tests/srt-parser.test.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,4 +15,4 @@
     "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
-}
+} 
