@@ -8,16 +8,43 @@ export class SrtParser {
         const cues: Cue[] = [];
 
         for (const block of blocks) {
-            const lines = block.split(/\r?\n/);
-            const id = Number(lines[0]);
-            const timeLine = lines[1];
-            const [startTime, endTime] = timeLine.split(" --> ");
-            const start = TimestampUtils.parseSrt(startTime);
-            const end = TimestampUtils.parseSrt(endTime);
-
-            const text = lines.slice(2).join("\n");
-            cues.push({id, start, end, text});
+            const cue = SrtParser.parseBlock(block);
+            if (cue !== null) {
+                cues.push(cue);
+            }
         }
         return new Subtitle(cues);
+    }
+
+    static parseBlock(blockText: string): Cue | null {
+        const lines = blockText.split(/\r?\n/);
+        if (lines.length < 3) {
+            return null;
+        }
+
+        const id = Number(lines[0]);
+        if (Number.isNaN(id)) {
+            return null;
+        }
+
+        const timeLine = lines[1];
+        if (!timeLine.includes(" --> ")) {
+            return null;
+        }
+
+        const [startTime, endTime] = timeLine.split(" --> ");
+        if (!startTime || !endTime) {
+            return null;
+        }
+
+        const start = TimestampUtils.parseSrt(startTime.trim());
+        const end = TimestampUtils.parseSrt(endTime.trim());
+        const text = lines.slice(2).join("\n");
+        return {
+            id,
+            start,
+            end,
+            text,
+        };
     }
 }
