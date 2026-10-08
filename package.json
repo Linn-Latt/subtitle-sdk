@@ -2,7 +2,23 @@
   "name": "subtitle-sdk",
   "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/src/core/index.js",
+      "types": "./dist/src/core/index.d.ts"
+    },
+    "./node": {
+      "import": "./dist/src/node/index.js",
+      "types": "./dist/src/node/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      ".": ["./dist/src/core/index.d.ts"],
+      "node": ["./dist/src/node/index.d.ts"]
+    }
+  },
+  "sideEffects": false,
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/core/tests/srt-parser.test.ts"
