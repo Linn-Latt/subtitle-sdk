@@ -7,4 +7,5 @@ export { VttParser } from "./parsers/VttParser.js";
 export { VttStreamParser } from "./parsers/VttStreamParser.js";
 export { VttFormatter } from "./formatters/VttFormatter.js";
 export { TxtParser } from "./parsers/TxtParser.js";
+export { TxtStreamParser } from "./parsers/TxtStreamParser.js";
 export { TxtFormatter } from "./formatters/TxtFormatter.js";
