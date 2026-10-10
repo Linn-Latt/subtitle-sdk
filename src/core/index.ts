@@ -9,3 +9,4 @@ export { VttFormatter } from "./formatters/VttFormatter.js";
 export { TxtParser } from "./parsers/TxtParser.js";
 export { TxtStreamParser } from "./parsers/TxtStreamParser.js";
 export { TxtFormatter } from "./formatters/TxtFormatter.js";
+export { SubtitleConverter } from "./utils/SubtitleConverter.js";
