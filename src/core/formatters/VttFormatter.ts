@@ -5,7 +5,7 @@ import { TimestampUtils } from "../utils/TimestampUtils.js";
 export class VttFormatter {
     static format(subtitle: Subtitle): string {
         const blocks = subtitle.getCues().map(cue => this.formatCue(cue));
-        return ["WEBVTT", "", ...blocks].join("\n");
+        return ["WEBVTT", "", ...blocks].join("\n\n");
     }
 
     private static formatCue(cue: Cue): string {
