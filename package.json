@@ -1,6 +1,8 @@
 {
   "name": "ww-subtitle-sdk",
   "version": "1.0.0",
+  "description": "TypeScript SDK for parsing, manipulating, and formatting subtitle files",
+  "author": "Linn Latt",
   "type": "module",
   "exports": {
     ".": {
@@ -19,14 +21,19 @@
     }
   },
   "sideEffects": false,
+  "files": ["dist", "README.md"],
   "scripts": {
     "build": "tsc",
-    "dev": "tsx src/core/tests/srt-parser.test.ts"
+    "prepublishOnly": "npm run build",
+    "test": "tsx src/core/tests/srt-parser.test.ts && tsx src/core/tests/vtt-parser.test.ts && tsx src/core/tests/txt-parser.test.ts && tsx src/core/tests/subtitle-converter.test.ts && tsx src/node/tests/response-mapper.test.ts",
+    "test:srt": "tsx src/core/tests/srt-parser.test.ts",
+    "test:vtt": "tsx src/core/tests/vtt-parser.test.ts",
+    "test:txt": "tsx src/core/tests/txt-parser.test.ts",
+    "test:converter": "tsx src/core/tests/subtitle-converter.test.ts",
+    "test:mapper": "tsx src/node/tests/response-mapper.test.ts"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@types/node": "^26.6.4",
     "tsx": "^4.23.15",
