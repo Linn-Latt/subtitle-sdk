@@ -11,8 +11,8 @@ export class Subtitle {
         return this.cues;
     }
 
-    addCues(cue: Cue): void {
-        this.cues.push(cue);
+    addCues(...cues: Cue[]): void {
+        this.cues.push(...cues);
     }
 
     getCue(id: number): Cue | undefined {
