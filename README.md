@@ -2,7 +2,7 @@
 
 A TypeScript SDK for parsing, editing, formatting, and transcribing subtitle files.
 
-It handles the subtitle data layer — reading and writing SRT, VTT, and TXT formats, editing cue timing and text, converting between formats, and transcribing audio files into subtitles via the Groq Whisper API. Rendering subtitles onto a video is the responsibility of the player or encoding tool you already use; this SDK gives it the right data.
+It handles the subtitle data layer — reading and writing SRT, VTT, and TXT formats, editing cue timing and text, converting between formats, and transcribing audio files into subtitles via the Groq Whisper API.
 
 ---
 
